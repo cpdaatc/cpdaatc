@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فعاليات طب الرئة العلمية | Pulmonary Medicine Scientific Events</title>
+  <meta name="description" content="بوابة مبسطة لفعاليات طب الرئة العلمية، تتضمن الفعاليات القادمة وروابط التسجيل وبروشورات الفعاليات السابقة." />
+  <style>
+    :root {
+      --bg:#071c22;
+      --bg2:#0b2c33;
+      --ink:#eef8f7;
+      --muted:#b7d3d0;
+      --card:#ffffff;
+      --cardInk:#12272b;
+      --line:#dcecea;
+      --accent:#22c58b;
+      --accent2:#9ee8d0;
+      --gold:#d2b45c;
+      --shadow:0 22px 70px rgba(0,0,0,.22);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+      background:linear-gradient(135deg,#05161b 0%,#0b2d35 50%,#06352d 100%);
+      color:var(--ink);
+      min-height:100vh;
+    }
+    body.light{
+      --bg:#f5fbfa; --bg2:#e8f5f2; --ink:#0b2c33; --muted:#496b68; --card:#fff; --cardInk:#12272b; --line:#d6e9e5;
+      background:linear-gradient(135deg,#f6fbfa,#e9f7f3);
+    }
+    a{color:inherit}
+    .wrap{width:min(1180px,92vw);margin:auto}
+    header{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(16px);
+      background:rgba(5,22,27,.72);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    body.light header{background:rgba(255,255,255,.72);border-bottom:1px solid #dbeae7}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .mark{
+      width:44px;height:44px;border-radius:14px;
+      background:radial-gradient(circle at 35% 35%,#7ff1c5,transparent 28%),linear-gradient(135deg,#0c4a50,#0b342f);
+      display:grid;place-items:center;box-shadow:0 10px 30px rgba(34,197,139,.25)
+    }
+    .mark svg{width:28px;height:28px}
+    .navActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    button,.btn{
+      border:0;border-radius:999px;padding:11px 16px;cursor:pointer;font-weight:750;
+      background:#113940;color:#eef8f7;text-decoration:none;display:inline-flex;gap:8px;align-items:center;justify-content:center;
+      transition:.2s transform,.2s box-shadow,.2s background;
+    }
+    button:hover,.btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.16)}
+    .btn.primary{background:linear-gradient(135deg,#17b77e,#0a8e7e);color:#fff}
+    .btn.ghost{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18)}
+    body.light .btn.ghost, body.light button{background:#eef8f5;color:#123236;border:1px solid #d7ece7}
+    .hero{
+      position:relative;overflow:hidden;
+      padding:72px 0 44px;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:0;opacity:.28;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(34,197,139,.35), transparent 24%),
+        radial-gradient(circle at 80% 15%, rgba(75,210,190,.22), transparent 25%),
+        linear-gradient(60deg, transparent 48%, rgba(255,255,255,.06) 49%, transparent 50%);
+      pointer-events:none;
+    }
+    .hex{
+      position:absolute;inset:0;opacity:.18;background-size:54px 62px;pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 1l26 15v30L27 61 1 46V16L27 1z' fill='none' stroke='%239ee8d0' stroke-width='1'/%3E%3C/svg%3E");
+    }
+    .heroGrid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+    .kicker{display:inline-flex;gap:8px;align-items:center;color:var(--accent2);font-weight:800;margin-bottom:14px}
+    h1{font-size:clamp(34px,5vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.8px}
+    .lead{font-size:clamp(17px,2vw,22px);color:var(--muted);line-height:1.8;margin:0 0 28px}
+    .heroPanel{
+      position:relative;border:1px solid rgba(255,255,255,.14);border-radius:34px;min-height:360px;padding:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    body.light .heroPanel{border-color:#d7ece7;background:linear-gradient(145deg,#fff,#edf8f5)}
+    .lungSvg{position:absolute;inset:auto 8% 7% auto;width:58%;max-width:340px;opacity:.78}
+    .statCard{
+      position:relative;background:rgba(255,255,255,.94);color:#10282d;border-radius:24px;padding:18px;margin-bottom:14px;
+      box-shadow:0 16px 40px rgba(0,0,0,.18)
+    }
+    .statCard b{display:block;font-size:20px;margin-bottom:6px}
+    .statCard span{color:#45645f}
+    .section{padding:34px 0}
+    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .sectionHead h2{font-size:clamp(24px,3vw,36px);margin:0}
+    .sectionHead p{margin:6px 0 0;color:var(--muted)}
+    .empty{
+      background:rgba(255,255,255,.09);border:1px dashed rgba(255,255,255,.24);
+      border-radius:24px;padding:28px;color:var(--muted);text-align:center
+    }
+    body.light .empty{background:#fff;border-color:#cfe5df}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .eventCard{
+      background:var(--card);color:var(--cardInk);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.28);
+      display:flex;flex-direction:column;min-height:100%;
+    }
+    .brochureCover{
+      position:relative;min-height:390px;background:#0a2c33;overflow:hidden;display:grid;place-items:center;
+      border-bottom:1px solid #dfecea;
+    }
+    .brochureCover img{
+      width:100%;height:100%;max-height:520px;object-fit:contain;background:#071c22;display:block;
+    }
+    .coverBadge{
+      position:absolute;top:14px;inset-inline-start:14px;background:rgba(5,22,27,.88);color:#fff;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:800
+    }
+    .eventBody{padding:22px}
+    .meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+    .pill{font-size:12px;font-weight:800;border-radius:999px;padding:7px 10px;background:#e9f8f2;color:#09654d}
+    .pill.dark{background:#edf2f7;color:#21313a}
+    .eventTitle{font-size:22px;line-height:1.25;margin:0 0 12px}
+    .facts{display:grid;gap:8px;color:#3e5b58;font-size:14.5px;margin:14px 0 18px}
+    .facts div{display:flex;gap:8px;align-items:flex-start}
+    .facts b{color:#12272b;min-width:76px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+    .detailsBtn{background:#0e3740;color:#fff}
+    .viewBtn{background:linear-gradient(135deg,#17b77e,#0a8e7e);color:#fff}
+    footer{padding:34px 0 50px;color:var(--muted);text-align:center}
+    .modal{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.65)}
+    .modal.open{display:flex}
+    .modalBox{width:min(980px,96vw);max-height:92vh;overflow:auto;background:#fff;color:#10282d;border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.4)}
+    .modalHead{padding:18px 22px;border-bottom:1px solid #e4eeee;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .modalContent{padding:22px;display:grid;grid-template-columns:.85fr 1.15fr;gap:24px}
+    .modalContent img{width:100%;border-radius:18px;border:1px solid #dbe8e6;background:#061b21}
+    .agenda{white-space:pre-line;background:#f3faf8;border:1px solid #d7ece7;border-radius:18px;padding:16px;line-height:1.8}
+    .close{background:#eef4f2;color:#10282d;border:1px solid #d8e9e5}
+    .en{display:none}
+    html[lang="en"]{direction:ltr}
+    html[lang="en"] body{direction:ltr}
+    html[lang="en"] .ar{display:none}
+    html[lang="en"] .en{display:inline}
+    html[lang="en"] .en.block{display:block}
+    html[lang="ar"] .ar.block{display:block}
+    @media (max-width: 860px){
+      .heroGrid,.modalContent{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .nav{height:auto;padding:14px 0;align-items:flex-start}
+      .brand{max-width:60%}
+      .hero{padding-top:44px}
+      .brochureCover{min-height:320px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M30 15c-6 5-8 12-8 21v12M34 15c6 5 8 12 8 21v12" stroke="#dffff5" stroke-width="4" stroke-linecap="round"/>
+            <path d="M30 30c-7-10-18-9-18 2 0 9 6 17 15 15M34 30c7-10 18-9 18 2 0 9-6 17-15 15" stroke="#8bf1c8" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="ar">فعاليات طب الرئة العلمية</span>
+          <span class="en">Pulmonary Medicine Scientific Events</span>
+        </div>
+      </div>
+      <div class="navActions">
+        <button id="langBtn" type="button">English</button>
+        <button id="themeBtn" type="button"><span class="ar">الوضع الفاتح</span><span class="en">Light mode</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hex"></div>
+      <div class="wrap heroGrid">
+        <div>
+          <div class="kicker"><span>◆</span><span class="ar">بوابة فعاليات طبية</span><span class="en">Medical Events Portal</span></div>
+          <h1><span class="ar">فعاليات طب الرئة العلمية</span><span class="en">Pulmonary Medicine Scientific Events</span></h1>
+          <p class="lead">
+            <span class="ar">صفحة موحدة وواضحة لاستعراض الفعاليات القادمة، روابط التسجيل، وبروشورات الفعاليات السابقة.</span>
+            <span class="en">A unified, clean portal for upcoming events, registration links, and previous event brochures.</span>
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#upcoming"><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></a>
+            <a class="btn ghost" href="#previous"><span class="ar">البروشورات السابقة</span><span class="en">Previous Brochures</span></a>
+          </div>
+        </div>
+        <div class="heroPanel">
+          <div class="statCard"><b class="ar">عرض واضح وسهل</b><b class="en">Clear event display</b><span class="ar">بطاقات للفعاليات وروابط مباشرة للتسجيل والبروشورات.</span><span class="en">Event cards with direct registration and brochure access.</span></div>
+          <div class="statCard"><b class="ar">بروشورات أصلية</b><b class="en">Original brochures</b><span class="ar">تظهر صور البروشورات السابقة كما هي داخل البطاقات.</span><span class="en">Previous brochure images appear directly in the cards.</span></div>
+          <svg class="lungSvg" viewBox="0 0 300 260" fill="none" aria-hidden="true">
+            <path d="M142 45c-28 23-38 62-38 119v46" stroke="#83f1c6" stroke-width="12" stroke-linecap="round"/>
+            <path d="M158 45c28 23 38 62 38 119v46" stroke="#83f1c6" stroke-width="12" stroke-linecap="round"/>
+            <path d="M136 110c-42-72-108-54-108 19 0 59 42 98 97 94 22-2 33-18 31-44" fill="rgba(34,197,139,.16)" stroke="#d8fff2" stroke-width="8"/>
+            <path d="M164 110c42-72 108-54 108 19 0 59-42 98-97 94-22-2-33-18-31-44" fill="rgba(34,197,139,.16)" stroke="#d8fff2" stroke-width="8"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upcoming">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></h2>
+            <p><span class="ar">سيظهر رابط التسجيل وبروشور الفعالية القادمة بمجرد إضافتها.</span><span class="en">Registration and brochure links will appear once added.</span></p>
+          </div>
+        </div>
+        <div id="upcomingList" class="cards"></div>
+        <div id="emptyUpcoming" class="empty"><span class="ar">لا توجد فعاليات قادمة حالياً.</span><span class="en">No upcoming events at the moment.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="previous">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2><span class="ar">الفعاليات السابقة</span><span class="en">Previous Events</span></h2>
+            <p><span class="ar">البروشورات الأصلية للفعاليات السابقة ظاهرة داخل البطاقات.</span><span class="en">Original previous event brochures are displayed in the cards.</span></p>
+          </div>
+        </div>
+        <div id="previousList" class="cards"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="ar">Pulmonary Medicine Scientific Events</span>
+      <span class="en">Pulmonary Medicine Scientific Events</span>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modalBox">
+      <div class="modalHead">
+        <strong id="modalTitle"></strong>
+        <button class="close" id="closeModal" type="button">×</button>
+      </div>
+      <div class="modalContent">
+        <img id="modalImg" alt="Event brochure" />
+        <div>
+          <div id="modalFacts" class="facts"></div>
+          <h3><span class="ar">المتحدثون</span><span class="en">Speakers</span></h3>
+          <p id="modalSpeakers"></p>
+          <h3><span class="ar">البرنامج</span><span class="en">Agenda</span></h3>
+          <div id="modalAgenda" class="agenda"></div>
+          <div id="modalActions" class="actions" style="margin-top:18px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const brochure1 = "data:image/webp;base64,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";
+    const brochure2 = "data:image/webp;base64,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";
+
+    const events = [
+      {
+        status: "Previous",
+        titleAr: "6th ILD MDT Meeting",
+        titleEn: "6th ILD MDT Meeting",
+        medicalField: "ILD MDT / Pulmonary Medicine",
+        eventType: "MDT Meeting",
+        date: "2026-02-02",
+        time: "9:00 PM - 11:00 PM",
+        location: "Virtual",
+        moderator: "Dr. Mohammed Alghamdi",
+        organizers: "Dr. Bader Alassiri; Dr. Hind Alsaleha",
+        speakers: "Dr. Abdullah Aseeri; Dr. Rahma Alsilmi; Dr. Fahad Alobaid; Dr. Amani Alifi; Dr. Ahmed Almuqati; Dr. Lamia Jamjoom",
+        agenda: "9:00 - 9:05 Welcome and Introduction\n9:05 - 10:45 ILD MDT: Case Presentation\n10:45 - 11:00 Boehringer Presentation\nQ & A",
+        brochureImage: brochure1,
+        brochureLink: "",
+        registrationLink: "",
+        displayOnPublicPage: true
+      },
+      {
+        status: "Previous",
+        titleAr: "Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition",
+        titleEn: "Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition",
+        medicalField: "Pulmonary Hypertension / Pulmonary Medicine",
+        eventType: "Scientific Series",
+        date: "2026-05-17",
+        time: "08:00 PM - 10:00 PM",
+        location: "Virtual",
+        moderator: "Dr. Hanan Fan",
+        organizers: "Dr. Mohammed Alghamdi; Dr. Osama Alzahrani",
+        speakers: "Dr. Nick H. Kim; Dr. Khaled M. Alobaidallah; Dr. Fayez K. Alahmadi; Dr. Bader Alghamdi; Dr. Mohammed Alghamdi",
+        agenda: "07:55 - 08:00 Welcome and Introduction — Dr. Osama Alzahrani\n08:00 - 08:45 Pulmonary Arterial Hypertension: Current Standards of Care and Management — Dr. Nick H. Kim\n08:45 - 09:00 How RV Health Serves as a Gateway to Better PAH Outcomes — Dr. Khaled M. Alobaidallah\n09:00 - 09:15 Unlocking Potential: Sustained Practical Gains with sGC Stimulation — Dr. Fayez K. Alahmadi\n09:15 - 09:20 Break\n09:20 - 09:50 Cardiopulmonary Exercise Testing (CPET) — Dr. Bader Alghamdi\n09:50 - 10:00 Q/A and close — Dr. Mohammed Alghamdi",
+        brochureImage: brochure2,
+        brochureLink: "",
+        registrationLink: "",
+        displayOnPublicPage: true
+      }
+
+      /*
+      To add an upcoming event later, paste a new object here:
+      {
+        status: "Upcoming",
+        titleAr: "عنوان الفعالية",
+        titleEn: "Event Title",
+        medicalField: "Pulmonary Medicine",
+        eventType: "Workshop",
+        date: "2026-00-00",
+        time: "00:00 PM - 00:00 PM",
+        location: "Virtual",
+        moderator: "",
+        organizers: "",
+        speakers: "",
+        agenda: "",
+        brochureImage: "PASTE_IMAGE_URL_OR_DATA_URL",
+        brochureLink: "https://...",
+        registrationLink: "https://forms.gle/...",
+        displayOnPublicPage: true
+      }
+      */
+    ];
+
+    const $ = s => document.querySelector(s);
+    const langBtn = $("#langBtn");
+    const themeBtn = $("#themeBtn");
+    let lang = localStorage.getItem("lang") || "ar";
+    let light = localStorage.getItem("theme") === "light";
+
+    function applyPrefs(){
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      langBtn.textContent = lang === "ar" ? "English" : "العربية";
+      document.body.classList.toggle("light", light);
+    }
+
+    langBtn.addEventListener("click", () => { lang = lang === "ar" ? "en" : "ar"; localStorage.setItem("lang", lang); applyPrefs(); render(); });
+    themeBtn.addEventListener("click", () => { light = !light; localStorage.setItem("theme", light ? "light" : "dark"); applyPrefs(); });
+
+    function text(event, keyAr, keyEn) {
+      return lang === "ar" ? event[keyAr] : (event[keyEn] || event[keyAr]);
+    }
+
+    function card(e, idx){
+      const title = text(e, "titleAr", "titleEn");
+      const register = e.registrationLink ? `<a class="btn primary" href="${e.registrationLink}" target="_blank" rel="noopener"><span class="ar">التسجيل</span><span class="en">Register</span></a>` : "";
+      const brochure = e.brochureLink ? `<a class="btn viewBtn" href="${e.brochureLink}" target="_blank" rel="noopener"><span class="ar">عرض البروشور</span><span class="en">View Brochure</span></a>` : `<button class="viewBtn" type="button" onclick="openDetails(${idx})"><span class="ar">عرض البروشور</span><span class="en">View Brochure</span></button>`;
+      return `
+        <article class="eventCard">
+          <div class="brochureCover">
+            <img src="${e.brochureImage || ""}" alt="${title}">
+            <div class="coverBadge">${e.status}</div>
+          </div>
+          <div class="eventBody">
+            <div class="meta">
+              <span class="pill">${e.medicalField}</span>
+              <span class="pill dark">${e.eventType}</span>
+            </div>
+            <h3 class="eventTitle">${title}</h3>
+            <div class="facts">
+              <div><b><span class="ar">التاريخ</span><span class="en">Date</span></b><span>${e.date}</span></div>
+              <div><b><span class="ar">الوقت</span><span class="en">Time</span></b><span>${e.time}</span></div>
+              <div><b><span class="ar">الموقع</span><span class="en">Location</span></b><span>${e.location}</span></div>
+              <div><b><span class="ar">الرئيس</span><span class="en">Chair</span></b><span>${e.moderator || "-"}</span></div>
+            </div>
+            <div class="actions">
+              <button class="detailsBtn" type="button" onclick="openDetails(${idx})"><span class="ar">التفاصيل</span><span class="en">Details</span></button>
+              ${brochure}
+              ${register}
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function render(){
+      const visible = events.filter(e => e.displayOnPublicPage !== false);
+      const upcoming = visible.filter(e => e.status === "Upcoming");
+      const previous = visible.filter(e => e.status === "Previous");
+      $("#upcomingList").innerHTML = upcoming.map((e,i)=>card(e, events.indexOf(e))).join("");
+      $("#previousList").innerHTML = previous.map((e,i)=>card(e, events.indexOf(e))).join("");
+      $("#emptyUpcoming").style.display = upcoming.length ? "none" : "block";
+    }
+
+    window.openDetails = function(idx){
+      const e = events[idx];
+      const title = text(e, "titleAr", "titleEn");
+      $("#modalTitle").textContent = title;
+      $("#modalImg").src = e.brochureImage || "";
+      $("#modalFacts").innerHTML = `
+        <div><b>${lang==="ar"?"المجال":"Field"}</b><span>${e.medicalField}</span></div>
+        <div><b>${lang==="ar"?"النوع":"Type"}</b><span>${e.eventType}</span></div>
+        <div><b>${lang==="ar"?"التاريخ":"Date"}</b><span>${e.date}</span></div>
+        <div><b>${lang==="ar"?"الوقت":"Time"}</b><span>${e.time}</span></div>
+        <div><b>${lang==="ar"?"الموقع":"Location"}</b><span>${e.location}</span></div>
+        <div><b>${lang==="ar"?"الرئيس":"Chair"}</b><span>${e.moderator || "-"}</span></div>
+        <div><b>${lang==="ar"?"المنظمون":"Organizers"}</b><span>${e.organizers || "-"}</span></div>
+      `;
+      $("#modalSpeakers").textContent = e.speakers || "-";
+      $("#modalAgenda").textContent = e.agenda || "-";
+      $("#modalActions").innerHTML = `
+        ${e.brochureLink ? `<a class="btn viewBtn" href="${e.brochureLink}" target="_blank" rel="noopener">${lang==="ar"?"عرض البروشور":"View Brochure"}</a>` : ""}
+        ${e.registrationLink ? `<a class="btn primary" href="${e.registrationLink}" target="_blank" rel="noopener">${lang==="ar"?"التسجيل":"Register"}</a>` : ""}
+      `;
+      $("#modal").classList.add("open");
+    }
+
+    $("#closeModal").addEventListener("click", () => $("#modal").classList.remove("open"));
+    $("#modal").addEventListener("click", (e) => { if(e.target.id === "modal") $("#modal").classList.remove("open"); });
+    applyPrefs();
+    render();
+  </script>
+</body>
+</html>
