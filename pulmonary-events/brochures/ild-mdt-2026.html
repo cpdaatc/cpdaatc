@@ -5,32 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>6th ILD MDT Meeting</title>
   <style>
-    :root{--bg:#061b21;--panel:#0b2c33;--accent:#22c58b;--ink:#eef8f7;--muted:#b7d3d0;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#05161b,#0b2d35 55%,#06352d);color:var(--ink);min-height:100vh}
-    .wrap{width:min(1040px,94vw);margin:auto;padding:24px 0 50px}
-    .top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
-    a{color:inherit;text-decoration:none}
-    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:11px 16px;font-weight:800}
-    h1{margin:16px 0 6px;font-size:clamp(26px,4vw,46px);line-height:1.15}
-    p{margin:0 0 20px;color:var(--muted);font-size:18px}
-    .viewer{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:28px;box-shadow:0 25px 80px rgba(0,0,0,.28);overflow:hidden;padding:14px}
-    img{width:100%;height:auto;display:block;border-radius:18px;background:#fff}
-    .caption{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:14px;margin-top:12px;flex-wrap:wrap}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#05161b,#0b2d35 55%,#06352d);color:#eef8f7;min-height:100vh}.wrap{width:min(1040px,94vw);margin:auto;padding:24px 0 50px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}a{color:inherit;text-decoration:none}.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:11px 16px;font-weight:800}h1{margin:16px 0 6px;font-size:clamp(26px,4vw,46px);line-height:1.15}p{margin:0 0 20px;color:#b7d3d0;font-size:18px}.viewer{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:28px;box-shadow:0 25px 80px rgba(0,0,0,.28);overflow:hidden;padding:14px}img{width:100%;height:auto;display:block;border-radius:18px;background:#fff}.caption{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#b7d3d0;font-size:14px;margin-top:12px;flex-wrap:wrap}.loading{padding:40px;text-align:center;color:#b7d3d0}
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
-      <a class="btn" href="../index.html">← العودة للفعاليات</a>
-      <a class="btn" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAoHBwgHBgoICAoKCgkLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDc4PjgyPi4zQEMBCwsLDw4PHhISHjIpIik1PTU1PTU9PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTX/wAARCAMABXADASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAwQCBQEGAAgH/8QANRAAAQMDAwIEAwYGAwEAAAAAAQIDEQAEEiExQVEFImFxgZGhsQYTMsHR8BRy0eEjQqKyUuL/xAAaAQACAwEBAAAAAAAAAAAAAAABAgADBAUG/8QAKxEAAgIBAwMDAwIHAAAAAAAAAAECEQMSITEEQRNRYXGBkaGx8DKhwdHw/9oADAMBAAIRAxEAPwD2oPKObb1Z/VQ2+ueOuV6t6cv6eSWpM6p1tqG3pdR2EjdzR6t2cRcj+Uo5rZ1k4a3mJbJGyS3m3eC3mrl+u03tWZT9b7fWq1g3HkswPJz0hrEVuUFYBME6jk8zNTn/OP+te8pPjM4Ndm96e3V29kQh3yYE5DBiRyoX3tUTfV5NmM3clNnJ2UyMh4kGAGrF0i4bW9t5mhR/N8ySM+4Vj6VqavYp+ZZXYeCOWChCo04BPPm/gaPwycrVtH7+Crw+eTcNnSNYsGkkYow7yRgU1cV+NUaeU+i/8ALsKxt1st5bi5WmwNwz5mAYK0TqNXaVq1xus4jT0oYNZsR5ZkcnWorcC53Gjjip+J6mYof9PVf8A0s1Nc6tYy0knvM9wTyag6AuY+MBcqp2mK7VRLrH7O0skha2Ryo2jGMj5hTn2mtS9Tn+ZXXe7uZhhQqNOCMZ+hqr3Fv4p1CSG3MFLENs5yDkcmuWpk6ZzsRH0Vx6WkqzWbbVj7CzbbH9ZBPEDGQc5rVa/4c1Ze4xknzX0PWtZp3Hh8lVs5rL3ZFaJNlOXk/zmFb+teg8K6nT6ee4jaS3iqnZijO1Vz19K1yqlsGx0dnC9rN5R8Qep5+q4z8E0woy9kgL5qfT1BJvYkWqQVzCyS5wAAfyNSzNtnPB6y7jrprPbjMTbvm+eARU9mj7y1bV7eKMCJCDkPuKy9HTKOpJrY9vM8dt6BCEZ4+tVZr2o1DNoY/wBgM3vZec5U8tF+/c+1bqvRI/iF6/YaKwnfwRq0nAb+yIlz1IGaq0vvX6pbY+zZCH5DbfuCM5qa7aX2mtxyXc0gkZ3A5GKvz5aMpYqz5p1sW93bLdQxHyfjKPI9PX8q1eFzbajGo20O8HtEN3vIBjwc1VtFS+Kt8LqLq2s7cW88g8s5yCe/wAKv0mG4e1j//Z" download="6th_ILD_MDT_Meeting.jpg">تحميل الصورة</a>
+      <a class="btn" href="../portal.html">← العودة للفعاليات</a>
+      <a class="btn" id="download" download="6th_ILD_MDT_Meeting.jpg">تحميل الصورة</a>
     </div>
     <h1>6th ILD MDT Meeting</h1>
     <p>2 February 2026 | 9:00 PM - 11:00 PM | Virtual</p>
     <section class="viewer">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAoHBwgHBgoICAoKCgkLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDc4PjgyPi4zQEMBCwsLDw4PHhISHjIpIik1PTU1PTU9PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTU1PTX/wAARCAMABXADASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAwQCBQEGAAgH/8QANRAAAQMDAwIEAwYGAwEAAAAAAQIDEQAEEiExQVEFImFxgZGhsQYTMsHR8BRy0eEjQqKyUuL/xAAaAQACAwEBAAAAAAAAAAAAAAABAgADBAUG/8QAKxEAAgIBAwMDAwIHAAAAAAAAAAECEQMSITEEQRNRYXGBkaGx8DKhwdHw/9oADAMBAAIRAxEAPwD2oPKObb1Z/VQ2+ueOuV6t6cv6eSWpM6p1tqG3pdR2EjdzR6t2cRcj+Uo5rZ1k4a3mJbJGyS3m3eC3mrl+u03tWZT9b7fWq1g3HkswPJz0hrEVuUFYBME6jk8zNTn/OP+te8pPjM4Ndm96e3V29kQh3yYE5DBiRyoX3tUTfV5NmM3clNnJ2UyMh4kGAGrF0i4bW9t5mhR/N8ySM+4Vj6VqavYp+ZZXYeCOWChCo04BPPm/gaPwycrVtH7+Crw+eTcNnSNYsGkkYow7yRgU1cV+NUaeU+i/8ALsKxt1st5bi5WmwNwz5mAYK0TqNXaVq1xus4jT0oYNZsR5ZkcnWorcC53Gjjip+J6mYof9PVf8A0s1Nc6tYy0knvM9wTyag6AuY+MBcqp2mK7VRLrH7O0skha2Ryo2jGMj5hTn2mtS9Tn+ZXXe7uZhhQqNOCMZ+hqr3Fv4p1CSG3MFLENs5yDkcmuWpk6ZzsRH0Vx6WkqzWbbVj7CzbbH9ZBPEDGQc5rVa/4c1Ze4xknzX0PWtZp3Hh8lVs5rL3ZFaJNlOXk/zmFb+teg8K6nT6ee4jaS3iqnZijO1Vz19K1yqlsGx0dnC9rN5R8Qep5+q4z8E0woy9kgL5qfT1BJvYkWqQVzCyS5wAAfyNSzNtnPB6y7jrprPbjMTbvm+eARU9mj7y1bV7eKMCJCDkPuKy9HTKOpJrY9vM8dt6BCEZ4+tVZr2o1DNoY/wBgM3vZec5U8tF+/c+1bqvRI/iF6/YaKwnfwRq0nAb+yIlz1IGaq0vvX6pbY+zZCH5DbfuCM5qa7aX2mtxyXc0gkZ3A5GKvz5aMpYqz5p1sW93bLdQxHyfjKPI9PX8q1eFzbajGo20O8HtEN3vIBjwc1VtFS+Kt8LqLq2s7cW88g8s5yCe/wAKv0mG4e1j//Z" alt="6th ILD MDT Meeting brochure" />
+      <div id="loading" class="loading">جاري تحميل البروشور...</div>
+      <img id="brochure" alt="6th ILD MDT Meeting brochure" style="display:none" />
       <div class="caption"><span>Original uploaded brochure</span><span>Pulmonary Medicine Scientific Events</span></div>
     </section>
   </main>
+  <script>
+    async function loadBrochure(){
+      const html = await fetch('../index.html').then(r=>r.text());
+      const match = html.match(/const brochure1 = "([^"]+)";/);
+      if(!match) throw new Error('Brochure image not found');
+      const img = document.getElementById('brochure');
+      img.src = match[1];
+      document.getElementById('download').href = match[1];
+      img.onload = () => { document.getElementById('loading').style.display='none'; img.style.display='block'; };
+    }
+    loadBrochure().catch(()=>{document.getElementById('loading').textContent='تعذر تحميل البروشور.'});
+  </script>
 </body>
 </html>
