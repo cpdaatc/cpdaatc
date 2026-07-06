@@ -1,38 +1,36 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pulmonary Insights Series - 9th Edition</title>
-  <style>
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#05161b,#0b2d35 55%,#06352d);color:#eef8f7;min-height:100vh}.wrap{width:min(1040px,94vw);margin:auto;padding:24px 0 50px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}a{color:inherit;text-decoration:none}.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:11px 16px;font-weight:800}h1{margin:16px 0 6px;font-size:clamp(26px,4vw,46px);line-height:1.15}p{margin:0 0 20px;color:#b7d3d0;font-size:18px}.viewer{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:28px;box-shadow:0 25px 80px rgba(0,0,0,.28);overflow:hidden;padding:14px}img{width:100%;height:auto;display:block;border-radius:18px;background:#fff}.caption{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#b7d3d0;font-size:14px;margin-top:12px;flex-wrap:wrap}.loading{padding:40px;text-align:center;color:#b7d3d0}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pulmonary Insights Series - 9th Edition</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#05161b,#0b2d35 55%,#06352d);color:#eef8f7;min-height:100vh}.wrap{width:min(960px,92vw);margin:auto;padding:26px 0 54px}a{text-decoration:none;color:inherit}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:28px}.btn{border:0;border-radius:999px;padding:12px 17px;font-weight:850;background:#113940;color:#eef8f7;display:inline-flex}.btn.primary{background:linear-gradient(135deg,#17b77e,#0a8e7e)}.card{background:#fff;color:#10282d;border-radius:28px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.25)}h1{font-size:clamp(30px,5vw,54px);margin:0 0 16px;line-height:1.1}.meta{display:grid;gap:10px;margin:18px 0 24px;color:#3e5b58}.meta div{display:flex;gap:10px}.meta b{min-width:90px;color:#10282d}.agenda{white-space:pre-line;background:#f3faf8;border:1px solid #d7ece7;border-radius:18px;padding:16px;line-height:1.8}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}@media(max-width:700px){.card{padding:22px}.meta div{display:block}.meta b{display:block;margin-bottom:4px}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="top">
-      <a class="btn" href="../portal.html">← العودة للفعاليات</a>
-      <a class="btn" id="download" download="Pulmonary_Insights_Series_9th_Edition.jpg">تحميل الصورة</a>
-    </div>
-    <h1>Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition</h1>
-    <p>17 May 2026 | 08:00 PM - 10:00 PM | Virtual</p>
-    <section class="viewer">
-      <div id="loading" class="loading">جاري تحميل البروشور...</div>
-      <img id="brochure" alt="Pulmonary Insights Series brochure" style="display:none" />
-      <div class="caption"><span>Original uploaded brochure</span><span>Pulmonary Medicine Scientific Events</span></div>
-    </section>
-  </main>
-  <script>
-    async function loadBrochure(){
-      const html = await fetch('../index.html').then(r=>r.text());
-      const match = html.match(/const brochure2 = "([^"]+)";/);
-      if(!match) throw new Error('Brochure image not found');
-      const img = document.getElementById('brochure');
-      img.src = match[1];
-      document.getElementById('download').href = match[1];
-      img.onload = () => { document.getElementById('loading').style.display='none'; img.style.display='block'; };
-    }
-    loadBrochure().catch(()=>{document.getElementById('loading').textContent='تعذر تحميل البروشور.'});
-  </script>
+<main class="wrap">
+<div class="top"><a class="btn" href="../../index.html">← العودة للفعاليات</a></div>
+<section class="card">
+<h1>Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition</h1>
+<div class="meta">
+<div><b>Date</b><span>2026-05-17</span></div>
+<div><b>Time</b><span>08:00 PM - 10:00 PM</span></div>
+<div><b>Location</b><span>Virtual</span></div>
+<div><b>Moderator</b><span>Dr. Hanan Fan</span></div>
+<div><b>Organizers</b><span>Dr. Mohammed Alghamdi; Dr. Osama Alzahrani</span></div>
+<div><b>Speakers</b><span>Dr. Nick H. Kim; Dr. Khaled M. Alobaidallah; Dr. Fayez K. Alahmadi; Dr. Bader Alghamdi; Dr. Mohammed Alghamdi</span></div>
+</div>
+<h2>Program</h2>
+<div class="agenda">07:55 - 08:00 Welcome and Introduction — Dr. Osama Alzahrani
+08:00 - 08:45 Pulmonary Arterial Hypertension: Current Standards of Care and Management — Dr. Nick H. Kim
+08:45 - 09:00 How RV Health Serves as a Gateway to Better PAH Outcomes — Dr. Khaled M. Alobaidallah
+09:00 - 09:15 Unlocking Potential: Sustained Practical Gains with sGC Stimulation — Dr. Fayez K. Alahmadi
+09:15 - 09:20 Break
+09:20 - 09:50 Cardiopulmonary Exercise Testing (CPET) — Dr. Bader Alghamdi
+09:50 - 10:00 Q/A and close — Dr. Mohammed Alghamdi</div>
+<div class="actions"><a class="btn primary" href="../../index.html">العودة للفعاليات</a></div>
+</section>
+</main>
 </body>
 </html>
