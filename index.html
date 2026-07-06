@@ -1,1 +1,518 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>فعاليات طب الرئة العلمية</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#05161b,#0b2d35 55%,#06352d);color:#eef8f7;min-height:100vh}a{text-decoration:none;color:inherit}.wrap{width:min(1100px,92vw);margin:auto}.top{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:900;font-size:clamp(19px,3vw,30px)}button,.btn{border:0;border-radius:999px;padding:12px 17px;cursor:pointer;font-weight:850;background:#113940;color:#eef8f7;display:inline-flex;align-items:center;justify-content:center}.btn.primary{background:linear-gradient(135deg,#17b77e,#0a8e7e)}.hero{padding:42px 0 28px}.hero h1{font-size:clamp(34px,5vw,62px);line-height:1.1;margin:0}.tabs{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}.section{padding:32px 0}.section h2{font-size:clamp(25px,4vw,38px);margin:0 0 18px}.empty{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.24);border-radius:24px;padding:26px;text-align:center;color:#b7d3d0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{background:#fff;color:#10282d;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.25);display:flex;flex-direction:column}.cover{height:420px;background:#061b21;display:grid;place-items:center;border-bottom:1px solid #e5eeee;overflow:hidden;flex:0 0 auto}.cover img{width:100%;height:100%;object-fit:contain;display:block}.body{padding:24px;background:#fff;position:relative;z-index:2;flex:0 0 auto}.badge{display:inline-flex;background:#e9f8f2;color:#09654d;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:900;margin-bottom:12px}.title{font-size:24px;line-height:1.25;margin:0 0 16px}.facts{display:grid;gap:8px;margin:0 0 20px;color:#3e5b58;font-size:15px}.facts div{display:flex;gap:8px}.facts b{min-width:76px;color:#10282d}.actions{display:flex;gap:10px;flex-wrap:wrap}.modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.75)}.modal.open{display:flex}.box{width:min(900px,96vw);max-height:90vh;overflow:auto;background:#fff;color:#10282d;border-radius:28px}.box.full{background:#061b21;padding:14px}.head{padding:18px 22px;border-bottom:1px solid #e4eeee;display:flex;justify-content:space-between;gap:12px}.content{padding:22px}.modalImg{width:100%;max-height:82vh;object-fit:contain;background:#061b21;border-radius:18px;display:block}.agenda{white-space:pre-line;background:#f3faf8;border:1px solid #d7ece7;border-radius:18px;padding:16px;line-height:1.8}.en{display:none}html[lang="en"]{direction:ltr}html[lang="en"] body{direction:ltr}html[lang="en"] .ar{display:none}html[lang="en"] .en{display:inline}html[lang="ar"] .ar{display:inline}@media(max-width:860px){.cards{grid-template-columns:1fr}.cover{height:390px}.top{align-items:flex-start;flex-wrap:wrap}}</style></head><body><header><div class="wrap top"><div class="brand"><span class="ar">فعاليات طب الرئة العلمية</span><span class="en">Pulmonary Medicine Scientific Events</span></div><button id="langBtn">English</button></div></header><main><section class="hero"><div class="wrap"><h1><span class="ar">فعاليات طب الرئة العلمية</span><span class="en">Pulmonary Medicine Scientific Events</span></h1><div class="tabs"><a class="btn primary" href="#upcoming"><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></a><a class="btn" href="#previous"><span class="ar">الفعاليات السابقة</span><span class="en">Previous Events</span></a></div></div></section><section class="section" id="upcoming"><div class="wrap"><h2><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></h2><div id="upcoming" class="cards"></div><div id="empty" class="empty"><span class="ar">لا توجد فعاليات قادمة حالياً.</span><span class="en">No upcoming events at the moment.</span></div></div></section><section class="section" id="previous"><div class="wrap"><h2><span class="ar">الفعاليات السابقة</span><span class="en">Previous Events</span></h2><div id="previousList" class="cards"></div></div></section></main><div class="modal" id="detailsModal"><div class="box"><div class="head"><strong id="modalTitle"></strong><button id="closeDetails">×</button></div><div class="content"><div id="modalFacts" class="facts"></div><h3><span class="ar">المتحدثون</span><span class="en">Speakers</span></h3><p id="modalSpeakers"></p><h3><span class="ar">البرنامج</span><span class="en">Agenda</span></h3><div id="modalAgenda" class="agenda"></div><div class="actions" style="margin-top:18px"><button class="btn primary" id="showBrochureBtn"><span class="ar">عرض البروشور</span><span class="en">View Brochure</span></button></div></div></div></div><div class="modal" id="brochureModal"><div class="box full"><div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button id="closeBrochure">×</button></div><img class="modalImg" id="brochureImage"></div></div><script>let lang=localStorage.getItem('lang')||'ar';let images={};const events=[{status:'Previous',titleAr:'6th ILD MDT Meeting',titleEn:'6th ILD MDT Meeting',medicalField:'ILD MDT / Pulmonary Medicine',eventType:'MDT Meeting',date:'2026-02-02',time:'9:00 PM - 11:00 PM',location:'Virtual',moderator:'Dr. Mohammed Alghamdi',organizers:'Dr. Bader Alassiri; Dr. Hind Alsaleha',speakers:'Dr. Abdullah Aseeri; Dr. Rahma Alsilmi; Dr. Fahad Alobaid; Dr. Amani Alifi; Dr. Ahmed Almuqati; Dr. Lamia Jamjoom',agenda:'9:00 - 9:05 Welcome and Introduction\n9:05 - 10:45 ILD MDT: Case Presentation\n10:45 - 11:00 Boehringer Presentation\nQ & A',key:'brochure1'},{status:'Previous',titleAr:'Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition',titleEn:'Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition',medicalField:'Pulmonary Hypertension / Pulmonary Medicine',eventType:'Scientific Series',date:'2026-05-17',time:'08:00 PM - 10:00 PM',location:'Virtual',moderator:'Dr. Hanan Fan',organizers:'Dr. Mohammed Alghamdi; Dr. Osama Alzahrani',speakers:'Dr. Nick H. Kim; Dr. Khaled M. Alobaidallah; Dr. Fayez K. Alahmadi; Dr. Bader Alghamdi; Dr. Mohammed Alghamdi',agenda:'07:55 - 08:00 Welcome and Introduction — Dr. Osama Alzahrani\n08:00 - 08:45 Pulmonary Arterial Hypertension: Current Standards of Care and Management — Dr. Nick H. Kim\n08:45 - 09:00 How RV Health Serves as a Gateway to Better PAH Outcomes — Dr. Khaled M. Alobaidallah\n09:00 - 09:15 Unlocking Potential: Sustained Practical Gains with sGC Stimulation — Dr. Fayez K. Alahmadi\n09:15 - 09:20 Break\n09:20 - 09:50 Cardiopulmonary Exercise Testing (CPET) — Dr. Bader Alghamdi\n09:50 - 10:00 Q/A and close — Dr. Mohammed Alghamdi',key:'brochure2'}];const $=s=>document.querySelector(s);function L(ar,en){return lang==='ar'?ar:en}function T(e){return lang==='ar'?e.titleAr:e.titleEn}function apply(){document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';$('#langBtn').textContent=lang==='ar'?'English':'العربية'}$('#langBtn').onclick=()=>{lang=lang==='ar'?'en':'ar';localStorage.setItem('lang',lang);apply();render()};async function loadImages(){const html=await fetch('pulmonary-events/index.html?v=source',{cache:'no-store'}).then(r=>r.text());for(const k of ['brochure1','brochure2']){const re=new RegExp('const\\s+'+k+'\\s*=\\s*"([^"]+)"');const m=html.match(re);if(m)images[k]=m[1];}}function card(e,i){const src=images[e.key]||'';return `<article class="card"><div class="cover">${src?`<img src="${src}" alt="${T(e)}">`:''}</div><div class="body"><span class="badge">${e.status}</span><h3 class="title">${T(e)}</h3><div class="facts"><div><b>${L('التاريخ','Date')}</b><span>${e.date}</span></div><div><b>${L('الوقت','Time')}</b><span>${e.time}</span></div><div><b>${L('الموقع','Location')}</b><span>${e.location}</span></div><div><b>${L('الرئيس','Chair')}</b><span>${e.moderator}</span></div></div><div class="actions"><button onclick="openDetails(${i})">${L('التفاصيل','Details')}</button><button class="btn primary" onclick="openBrochure(${i})">${L('عرض البروشور','View Brochure')}</button></div></div></article>`}function render(){const u=events.filter(e=>e.status==='Upcoming'),p=events.filter(e=>e.status==='Previous');$('#upcoming').innerHTML=u.map(e=>card(e,events.indexOf(e))).join('');$('#previousList').innerHTML=p.map(e=>card(e,events.indexOf(e))).join('');$('#empty').style.display=u.length?'none':'block'}window.openBrochure=function(i){const src=images[events[i].key];if(src){$('#brochureImage').src=src;$('#brochureModal').classList.add('open')}};window.openDetails=function(i){const e=events[i];$('#modalTitle').textContent=T(e);$('#modalFacts').innerHTML=`<div><b>${L('المجال','Field')}</b><span>${e.medicalField}</span></div><div><b>${L('النوع','Type')}</b><span>${e.eventType}</span></div><div><b>${L('التاريخ','Date')}</b><span>${e.date}</span></div><div><b>${L('الوقت','Time')}</b><span>${e.time}</span></div><div><b>${L('الموقع','Location')}</b><span>${e.location}</span></div><div><b>${L('الرئيس','Chair')}</b><span>${e.moderator}</span></div><div><b>${L('المنظمون','Organizers')}</b><span>${e.organizers}</span></div>`;$('#modalSpeakers').textContent=e.speakers;$('#modalAgenda').textContent=e.agenda;$('#showBrochureBtn').onclick=()=>openBrochure(i);$('#detailsModal').classList.add('open')};$('#closeDetails').onclick=()=>$('#detailsModal').classList.remove('open');$('#closeBrochure').onclick=()=>$('#brochureModal').classList.remove('open');$('#detailsModal').onclick=e=>{if(e.target.id==='detailsModal')$('#detailsModal').classList.remove('open')};$('#brochureModal').onclick=e=>{if(e.target.id==='brochureModal')$('#brochureModal').classList.remove('open')};apply();loadImages().finally(render);</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>فعاليات طب الرئة العلمية | Pulmonary Medicine Scientific Events</title>
+<meta name="description" content="Pulmonary Medicine Scientific Events portal with previous brochures and upcoming event links.">
+<style>
+:root{
+  --bg:#061b21;
+  --bg2:#0b3038;
+  --card:#ffffff;
+  --ink:#10282d;
+  --muted:#526d69;
+  --line:#dbe9e6;
+  --soft:#f2f8f7;
+  --accent:#17b77e;
+  --accent2:#0a8e7e;
+  --deep:#0e3740;
+  --chip:#e9f8f2;
+  --chipText:#09654d;
+  --shadow:0 24px 70px rgba(0,0,0,.24);
+  --radius:26px;
+}
+body.light{
+  --bg:#f3faf9;
+  --bg2:#e6f4f1;
+  --card:#ffffff;
+  --ink:#123136;
+  --muted:#506b67;
+  --line:#d7e8e5;
+  --soft:#f7fbfa;
+  --deep:#eaf5f2;
+  --shadow:0 18px 44px rgba(17,43,48,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+  background:linear-gradient(135deg,var(--bg),var(--bg2) 58%,#06352d);
+  color:#eef8f7;
+  min-height:100vh;
+}
+body.light{color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1120px,92vw);margin:auto}
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(16px);
+  background:rgba(6,27,33,.82);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+body.light header{background:rgba(255,255,255,.82);border-bottom:1px solid var(--line)}
+.nav{
+  min-height:76px;
+  padding:14px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{display:flex;align-items:center;gap:13px;font-weight:900;line-height:1.15}
+.logo{
+  width:48px;height:48px;border-radius:16px;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 35%,#8ff6cf 0,#0b887a 48%,#06333d 100%);
+  box-shadow:0 10px 28px rgba(23,183,126,.24);
+  flex:0 0 auto;
+}
+.logo svg{width:30px;height:30px}
+.brandTitle{font-size:clamp(18px,2.4vw,30px)}
+.navActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+button,.btn{
+  border:0;
+  border-radius:999px;
+  padding:12px 17px;
+  cursor:pointer;
+  font-weight:850;
+  font-size:14px;
+  background:#113940;
+  color:#eef8f7;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+button:hover,.btn:hover{filter:brightness(1.04)}
+body.light button, body.light .btn.secondary{background:#eaf5f2;color:#123136}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn.secondary{background:#113940;color:#eef8f7}
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:62px 0 38px;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;opacity:.24;pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(34,197,139,.38),transparent 25%),
+    radial-gradient(circle at 85% 15%,rgba(125,240,205,.20),transparent 28%),
+    linear-gradient(60deg,transparent 48%,rgba(255,255,255,.06) 49%,transparent 50%);
+}
+.hex{
+  position:absolute;inset:0;opacity:.14;pointer-events:none;background-size:54px 62px;
+  background-image:url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 1l26 15v30L27 61 1 46V16L27 1z' fill='none' stroke='%239ee8d0' stroke-width='1'/%3E%3C/svg%3E");
+}
+.heroGrid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:#9ee8d0;font-weight:900;margin-bottom:14px}
+h1{font-size:clamp(36px,5vw,66px);line-height:1.05;margin:0 0 16px;letter-spacing:-.9px}
+.lead{font-size:clamp(17px,2vw,22px);color:#bdd4d0;line-height:1.75;margin:0 0 26px;max-width:760px}
+body.light .lead{color:var(--muted)}
+.heroPanel{
+  position:relative;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:34px;
+  min-height:340px;
+  padding:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.04));
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+body.light .heroPanel{border-color:var(--line);background:linear-gradient(145deg,#fff,#edf8f5)}
+.panelCard{
+  position:relative;
+  background:rgba(255,255,255,.94);
+  color:#10282d;
+  border-radius:24px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 16px 40px rgba(0,0,0,.16);
+}
+.panelCard b{display:block;font-size:20px;margin-bottom:6px}
+.panelCard span{color:#45645f;line-height:1.55}
+.lungSvg{position:absolute;inset:auto 7% 5% auto;width:56%;max-width:320px;opacity:.76}
+.section{padding:38px 0}
+.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px}
+.sectionHead h2{font-size:clamp(26px,3.4vw,42px);margin:0}
+.sectionHead p{margin:7px 0 0;color:#bdd4d0}
+body.light .sectionHead p{color:var(--muted)}
+.empty{
+  background:rgba(255,255,255,.09);
+  border:1px dashed rgba(255,255,255,.26);
+  color:#c5ddda;
+  border-radius:24px;
+  padding:28px;
+  text-align:center;
+}
+body.light .empty{background:#fff;border-color:var(--line);color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.eventCard{
+  background:var(--card);
+  color:var(--ink);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  border:1px solid rgba(255,255,255,.25);
+}
+.brochureShell{
+  background:#061b21;
+  border-bottom:1px solid var(--line);
+  padding:18px;
+}
+.brochureFrame{
+  height:520px;
+  border-radius:20px;
+  overflow:hidden;
+  background:#061b21;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.brochureFrame img{
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+.eventBody{padding:24px;background:#fff;display:flex;flex-direction:column;gap:14px;flex:1}
+body.light .eventBody{background:#fff}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:12px;font-weight:900;border-radius:999px;padding:7px 11px;background:var(--chip);color:var(--chipText)}
+.eventTitle{font-size:clamp(22px,2.6vw,31px);line-height:1.22;margin:0}
+.facts{display:grid;gap:9px;color:var(--muted);font-size:15px}
+.facts div{display:flex;gap:9px;align-items:flex-start}
+.facts b{color:var(--ink);min-width:86px}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:auto}
+.detailsBtn{background:#103a43;color:#fff}
+.viewBtn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+body.light .detailsBtn{background:#103a43;color:#fff}
+.modal{
+  position:fixed;inset:0;z-index:50;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.72);
+}
+.modal.open{display:flex}
+.modalBox{
+  width:min(1000px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  color:#10282d;
+  border-radius:28px;
+  box-shadow:0 30px 90px rgba(0,0,0,.4);
+}
+.modalHead{
+  position:sticky;top:0;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:18px 22px;
+  border-bottom:1px solid #e4eeee;
+  background:#fff;
+  z-index:2;
+}
+.close{background:#eef4f2;color:#10282d;border:1px solid #d8e9e5;font-size:22px;padding:10px 16px}
+.modalContent{padding:22px;display:grid;grid-template-columns:.9fr 1.1fr;gap:24px}
+.previewImg{width:100%;border-radius:18px;border:1px solid #dbe8e6;background:#061b21;display:block}
+.agenda{white-space:pre-line;background:#f3faf8;border:1px solid #d7ece7;border-radius:18px;padding:16px;line-height:1.85}
+.viewerBox{
+  width:min(1040px,97vw);
+  max-height:94vh;
+  overflow:auto;
+  background:#061b21;
+  border-radius:28px;
+  padding:14px;
+}
+.viewerHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;color:#fff}
+.viewerImg{
+  display:block;
+  max-width:100%;
+  max-height:86vh;
+  width:auto;
+  height:auto;
+  margin:auto;
+  border-radius:18px;
+  background:#061b21;
+}
+footer{padding:34px 0 52px;text-align:center;color:#bdd4d0}
+body.light footer{color:var(--muted)}
+.en{display:none}
+html[lang="en"]{direction:ltr}
+html[lang="en"] body{direction:ltr}
+html[lang="en"] .ar{display:none}
+html[lang="en"] .en{display:inline}
+html[lang="en"] .en.block{display:block}
+html[lang="ar"] .ar.block{display:block}
+@media (max-width:900px){
+  .heroGrid,.modalContent{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .nav{align-items:flex-start;flex-wrap:wrap}
+  .brandTitle{max-width:15ch}
+  .hero{padding-top:42px}
+  .brochureFrame{height:440px}
+}
+@media (max-width:520px){
+  .brochureShell{padding:12px}
+  .brochureFrame{height:390px}
+  button,.btn{width:auto}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M30 15c-6 5-8 12-8 21v12M34 15c6 5 8 12 8 21v12" stroke="#dffff5" stroke-width="4" stroke-linecap="round"/>
+          <path d="M30 30c-7-10-18-9-18 2 0 9 6 17 15 15M34 30c7-10 18-9 18 2 0 9-6 17-15 15" stroke="#8bf1c8" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brandTitle">
+        <span class="ar">فعاليات طب الرئة العلمية</span>
+        <span class="en">Pulmonary Medicine Scientific Events</span>
+      </div>
+    </div>
+    <div class="navActions">
+      <button id="langBtn" type="button">English</button>
+      <button id="themeBtn" type="button"><span class="ar">الوضع الفاتح</span><span class="en">Light mode</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hex"></div>
+    <div class="wrap heroGrid">
+      <div>
+        <div class="kicker"><span>◆</span><span class="ar">بوابة فعاليات طبية</span><span class="en">Medical Events Portal</span></div>
+        <h1><span class="ar">فعاليات طب الرئة العلمية</span><span class="en">Pulmonary Medicine Scientific Events</span></h1>
+        <p class="lead">
+          <span class="ar">صفحة موحدة لاستعراض الفعاليات القادمة وروابط التسجيل وبروشورات الفعاليات السابقة.</span>
+          <span class="en">A unified portal for upcoming events, registration links, and previous event brochures.</span>
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#upcoming"><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></a>
+          <a class="btn secondary" href="#previous"><span class="ar">البروشورات السابقة</span><span class="en">Previous Brochures</span></a>
+        </div>
+      </div>
+      <div class="heroPanel">
+        <div class="panelCard"><b class="ar">عرض واضح</b><b class="en">Clear display</b><span class="ar">كل فعالية في بطاقة مستقلة مع بروشور وتفاصيل.</span><span class="en">Each event has a separate brochure and details card.</span></div>
+        <div class="panelCard"><b class="ar">جاهز للتحديث</b><b class="en">Ready to update</b><span class="ar">يمكن إضافة الفعاليات القادمة وروابط التسجيل لاحقاً.</span><span class="en">Upcoming events and registration links can be added later.</span></div>
+        <svg class="lungSvg" viewBox="0 0 300 260" fill="none" aria-hidden="true">
+          <path d="M142 45c-28 23-38 62-38 119v46" stroke="#83f1c6" stroke-width="12" stroke-linecap="round"/>
+          <path d="M158 45c28 23 38 62 38 119v46" stroke="#83f1c6" stroke-width="12" stroke-linecap="round"/>
+          <path d="M136 110c-42-72-108-54-108 19 0 59 42 98 97 94 22-2 33-18 31-44" fill="rgba(34,197,139,.16)" stroke="#d8fff2" stroke-width="8"/>
+          <path d="M164 110c42-72 108-54 108 19 0 59-42 98-97 94-22-2-33-18-31-44" fill="rgba(34,197,139,.16)" stroke="#d8fff2" stroke-width="8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="upcoming">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2><span class="ar">الفعاليات القادمة</span><span class="en">Upcoming Events</span></h2>
+          <p><span class="ar">ستظهر روابط التسجيل وبروشورات الفعاليات القادمة عند إضافتها.</span><span class="en">Registration links and brochures will appear once added.</span></p>
+        </div>
+      </div>
+      <div id="upcomingList" class="cards"></div>
+      <div id="emptyUpcoming" class="empty"><span class="ar">لا توجد فعاليات قادمة حالياً.</span><span class="en">No upcoming events at the moment.</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="previous">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2><span class="ar">الفعاليات السابقة</span><span class="en">Previous Events</span></h2>
+          <p><span class="ar">البروشورات الأصلية ظاهرة داخل بطاقات مرتبة، ويمكن فتحها بحجم كامل.</span><span class="en">Original brochures are displayed in clean cards and can be opened full size.</span></p>
+        </div>
+      </div>
+      <div id="previousList" class="cards"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Pulmonary Medicine Scientific Events</div>
+</footer>
+
+<div class="modal" id="detailsModal" role="dialog" aria-modal="true">
+  <div class="modalBox">
+    <div class="modalHead">
+      <strong id="detailsTitle"></strong>
+      <button class="close" id="closeDetails" type="button">×</button>
+    </div>
+    <div class="modalContent">
+      <img id="detailsImg" class="previewImg" alt="Event brochure">
+      <div>
+        <div id="detailsFacts" class="facts"></div>
+        <h3><span class="ar">المتحدثون</span><span class="en">Speakers</span></h3>
+        <p id="detailsSpeakers"></p>
+        <h3><span class="ar">البرنامج</span><span class="en">Agenda</span></h3>
+        <div id="detailsAgenda" class="agenda"></div>
+        <div class="actions" style="margin-top:18px">
+          <button class="viewBtn" id="detailsViewBtn" type="button"><span class="ar">عرض البروشور</span><span class="en">View Brochure</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="viewerModal" role="dialog" aria-modal="true">
+  <div class="viewerBox">
+    <div class="viewerHead">
+      <strong id="viewerTitle"></strong>
+      <button class="close" id="closeViewer" type="button">×</button>
+    </div>
+    <img id="viewerImg" class="viewerImg" alt="Brochure">
+  </div>
+</div>
+
+<script>
+const events = [
+  {
+    status:"Previous",
+    titleAr:"6th ILD MDT Meeting",
+    titleEn:"6th ILD MDT Meeting",
+    fieldAr:"ILD MDT / طب الرئة",
+    fieldEn:"ILD MDT / Pulmonary Medicine",
+    typeAr:"اجتماع MDT",
+    typeEn:"MDT Meeting",
+    date:"2026-02-02",
+    time:"9:00 PM - 11:00 PM",
+    locationAr:"افتراضي",
+    locationEn:"Virtual",
+    chair:"Dr. Mohammed Alghamdi",
+    organizers:"Dr. Bader Alassiri; Dr. Hind Alsaleha",
+    speakers:"Dr. Abdullah Aseeri; Dr. Rahma Alsilmi; Dr. Fahad Alobaid; Dr. Amani Alifi; Dr. Ahmed Almuqati; Dr. Lamia Jamjoom",
+    agenda:"9:00 - 9:05 Welcome and Introduction\n9:05 - 10:45 ILD MDT: Case Presentation\n10:45 - 11:00 Boehringer Presentation\nQ & A",
+    brochure:"assets/ild-mdt-2026.jpg"
+  },
+  {
+    status:"Previous",
+    titleAr:"Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition",
+    titleEn:"Pulmonary Insights Series - Pulmonary Hypertension - 9th Edition",
+    fieldAr:"ارتفاع ضغط الشريان الرئوي / طب الرئة",
+    fieldEn:"Pulmonary Hypertension / Pulmonary Medicine",
+    typeAr:"سلسلة علمية",
+    typeEn:"Scientific Series",
+    date:"2026-05-17",
+    time:"08:00 PM - 10:00 PM",
+    locationAr:"افتراضي",
+    locationEn:"Virtual",
+    chair:"Dr. Hanan Fan",
+    organizers:"Dr. Mohammed Alghamdi; Dr. Osama Alzahrani",
+    speakers:"Dr. Nick H. Kim; Dr. Khaled M. Alobaidallah; Dr. Fayez K. Alahmadi; Dr. Bader Alghamdi; Dr. Mohammed Alghamdi",
+    agenda:"07:55 - 08:00 Welcome and Introduction — Dr. Osama Alzahrani\n08:00 - 08:45 Pulmonary Arterial Hypertension: Current Standards of Care and Management — Dr. Nick H. Kim\n08:45 - 09:00 How RV Health Serves as a Gateway to Better PAH Outcomes — Dr. Khaled M. Alobaidallah\n09:00 - 09:15 Unlocking Potential: Sustained Practical Gains with sGC Stimulation — Dr. Fayez K. Alahmadi\n09:15 - 09:20 Break\n09:20 - 09:50 Cardiopulmonary Exercise Testing (CPET) — Dr. Bader Alghamdi\n09:50 - 10:00 Q/A and close — Dr. Mohammed Alghamdi",
+    brochure:"assets/pulmonary-insights-9.jpg"
+  }
+];
+
+const $ = s => document.querySelector(s);
+let lang = localStorage.getItem("pm_lang") || "ar";
+let light = localStorage.getItem("pm_theme") === "light";
+
+function isAr(){ return lang === "ar"; }
+function label(ar,en){ return isAr() ? ar : en; }
+function eventTitle(e){ return isAr() ? e.titleAr : e.titleEn; }
+function field(e){ return isAr() ? e.fieldAr : e.fieldEn; }
+function type(e){ return isAr() ? e.typeAr : e.typeEn; }
+function locationText(e){ return isAr() ? e.locationAr : e.locationEn; }
+
+function applyState(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isAr() ? "rtl" : "ltr";
+  document.body.classList.toggle("light", light);
+  $("#langBtn").textContent = isAr() ? "English" : "العربية";
+  $("#themeBtn").innerHTML = light
+    ? '<span class="ar">الوضع الداكن</span><span class="en">Dark mode</span>'
+    : '<span class="ar">الوضع الفاتح</span><span class="en">Light mode</span>';
+}
+
+function card(e, i){
+  return `
+    <article class="eventCard">
+      <div class="brochureShell">
+        <div class="brochureFrame">
+          <img src="${e.brochure}" alt="${eventTitle(e)}">
+        </div>
+      </div>
+      <div class="eventBody">
+        <div class="meta">
+          <span class="pill">${label("سابق","Previous")}</span>
+          <span class="pill">${field(e)}</span>
+          <span class="pill">${type(e)}</span>
+        </div>
+        <h3 class="eventTitle">${eventTitle(e)}</h3>
+        <div class="facts">
+          <div><b>${label("التاريخ","Date")}</b><span>${e.date}</span></div>
+          <div><b>${label("الوقت","Time")}</b><span>${e.time}</span></div>
+          <div><b>${label("الموقع","Location")}</b><span>${locationText(e)}</span></div>
+          <div><b>${label("الرئيس","Chair")}</b><span>${e.chair}</span></div>
+        </div>
+        <div class="actions">
+          <button class="detailsBtn" type="button" onclick="openDetails(${i})">${label("التفاصيل","Details")}</button>
+          <button class="viewBtn" type="button" onclick="openViewer(${i})">${label("عرض البروشور","View Brochure")}</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function render(){
+  $("#previousList").innerHTML = events.map(card).join("");
+  $("#emptyUpcoming").style.display = "block";
+}
+
+window.openViewer = function(i){
+  const e = events[i];
+  $("#viewerTitle").textContent = eventTitle(e);
+  $("#viewerImg").src = e.brochure;
+  $("#viewerModal").classList.add("open");
+};
+
+window.openDetails = function(i){
+  const e = events[i];
+  $("#detailsTitle").textContent = eventTitle(e);
+  $("#detailsImg").src = e.brochure;
+  $("#detailsFacts").innerHTML = `
+    <div><b>${label("المجال","Field")}</b><span>${field(e)}</span></div>
+    <div><b>${label("النوع","Type")}</b><span>${type(e)}</span></div>
+    <div><b>${label("التاريخ","Date")}</b><span>${e.date}</span></div>
+    <div><b>${label("الوقت","Time")}</b><span>${e.time}</span></div>
+    <div><b>${label("الموقع","Location")}</b><span>${locationText(e)}</span></div>
+    <div><b>${label("الرئيس","Chair")}</b><span>${e.chair}</span></div>
+    <div><b>${label("المنظمون","Organizers")}</b><span>${e.organizers}</span></div>
+  `;
+  $("#detailsSpeakers").textContent = e.speakers;
+  $("#detailsAgenda").textContent = e.agenda;
+  $("#detailsViewBtn").onclick = () => openViewer(i);
+  $("#detailsModal").classList.add("open");
+};
+
+function closeDetails(){ $("#detailsModal").classList.remove("open"); }
+function closeViewer(){ $("#viewerModal").classList.remove("open"); }
+
+$("#closeDetails").onclick = closeDetails;
+$("#closeViewer").onclick = closeViewer;
+$("#detailsModal").onclick = e => { if(e.target.id === "detailsModal") closeDetails(); };
+$("#viewerModal").onclick = e => { if(e.target.id === "viewerModal") closeViewer(); };
+$("#langBtn").onclick = () => { lang = isAr() ? "en" : "ar"; localStorage.setItem("pm_lang", lang); applyState(); render(); };
+$("#themeBtn").onclick = () => { light = !light; localStorage.setItem("pm_theme", light ? "light" : "dark"); applyState(); };
+
+applyState();
+render();
+</script>
+</body>
+</html>
